@@ -1,10 +1,14 @@
 <nav class="nav navbar-default header" role="navigation">
-    <ul class="nav navbar-nav educacity-nav">
-        <li>
+    <ul ng-if="home == 'false'" class="nav navbar-nav educacity-nav">
+        <li ng-if="button == 'menu'">
             <a id="btn-menu" href="#"><span class="icon icon-menu"></span></a>
         </li>
+        <li ng-if="button == 'back'">
+            <a id="btn-back" href="#"><span class="icon icon-back"></span></a>
+        </li>
         <li>
-            <h1 class="text-center" ng-bind="city"></h1>
+            <h1 class="text-center" ng-bind="city">{{home}}</h1>
         </li>
     </ul>
+    <h1 ng-if="home == 'true'" class="text-center">Educacity</h1>
 </nav>
