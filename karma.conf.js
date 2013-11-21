@@ -20,8 +20,14 @@ module.exports = function(config) {
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'test/spec/**/*.js',
+      //templates
+      'app/views/templates/*.html'
     ],
+
+    preprocessors: {
+      'app/views/templates/*.html': 'ng-html2js'
+    },
 
     // list of files / patterns to exclude
     exclude: [],
@@ -46,11 +52,12 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
 
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
     singleRun: false
+
   });
 };
