@@ -9,9 +9,6 @@ angular.module('educacityApp')
         city : '@',
         home : '@',
         button : '@'
-      },
-      link: function (scope, element, attrs) {
-
       }
     };
   });
