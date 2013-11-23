@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: Educacitydb', function () {
+describe('Service: educacityDB', function () {
 
   // load the service's module
   beforeEach(module('educacityApp'));
 
   // instantiate service
-  var Educacitydb;
-  beforeEach(inject(function (_Educacitydb_) {
-    Educacitydb = _Educacitydb_;
+  var educacityDB;
+  beforeEach(inject(function (_educacityDB_) {
+    educacityDB = _educacityDB_;
   }));
 
-  it('should do something', function () {
-    expect(!!Educacitydb).toBe(true);
+  it('should', function () {
+    expect(!!educacityDB).toBe(true);
   });
 
 });
