@@ -5,6 +5,5 @@ angular.module('educacityApp')
     return {
       templateUrl: 'views/templates/sitesList.html',
       restrict: 'E',
-      scope : { sites : "=" }
     };
   });

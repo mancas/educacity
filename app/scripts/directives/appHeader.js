@@ -6,9 +6,10 @@ angular.module('educacityApp')
       templateUrl: "views/templates/header.html",
       restrict: 'E',
       scope: {
-        city : '@',
+        title : '@',
         home : '@',
-        button : '@'
+        button : '@',
+        eventHandler: '&ngFunction'
       }
     };
   });

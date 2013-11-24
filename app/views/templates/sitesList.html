@@ -1,6 +1,14 @@
-<ul class="list-group">
-    <li ng-repeat="site in sites" class="list-group-item">
-        <h3 ng-bind="site.title"></h3>
-        <p ng-bind="site.description"></p>
-    </li>
-</ul>
+<div id="search">
+    <input type="text" class="form-control" placeholder="Buscar" ng-model="siteSearch.title" >
+</div>
+
+<div class="list-group row">
+    <div ng-repeat="site in sites | filter : siteSearch" class="list-group-item thumbanil">
+        <div class="col-xs-4 col-md-3 educacity-img-thumbnail">
+            <img ng-src="{{site.image}}">
+        </div>
+        <div class="col-xs-8 col-md-9">
+            <h4><a href="" ng-bind="site.title" ng-click="loadData($index)"></a></h4>
+        </div>
+    </div>
+</div>

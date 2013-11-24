@@ -137,6 +137,26 @@ section[role="region"][data-position="right"] {
   -webkit-animation: leftToCurrent 0.4s forwards;
 }
 
+[data-position="back"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 1;
+  /* z-index: 100; -> drawer */
+}
+[data-position="back"].fade-in {
+  z-index: 120;
+  animation: fadeIn 0.2s forwards;
+  -webkit-animation: fadeIn 0.2s forwards;
+}
+[data-position="back"].fade-out {
+  animation: fadeOut 0.2s forwards;
+  -webkit-animation: fadeOut 0.2s forwards;
+}
+
 section[role="region"] {
   position: relative;
   -webkit-transition: all 0.25s ease 0s;
@@ -163,5 +183,63 @@ section[role="region"]:not(#index) {
 div[role="main"] {
   height: 100%;
   position: relative;
-  overflow-x: hidden;
+  background-color: #e3e3e3;
+}
+
+/** Sites **/
+
+div#search {
+  padding: 15px;
+}
+
+div#search > input {
+  border-radius: 0px !important;
+}
+
+div#search > input:focus {
+  border-color: #CCCCCC;
+  box-shadow: none;
+}
+
+.list-group-item {
+  border-radius: 0px !important;
+  overflow: hidden;
+}
+
+.list-group-item img {
+  max-width: 240px;
+}
+
+.list-group {
+  margin: 0px !important;
+}
+
+.img-polaroid {
+  width: 240px;
+  height: 160px;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+@media (min-width: 321px) {
+  .list-group-item {
+    float: left;
+    min-width: 50%;
+  }
+}
+
+@media (max-width: 320px) {
+  .educacity-img-thumbnail {
+    max-height: 80px;
+  }
+}
+
+.educacity-img-thumbnail {
+  overflow: hidden;
+  padding-left: 0px !important;
+  max-height: 125px;
+}
+
+.educacity-img-thumbnail img {
+  width: 100%;
 }

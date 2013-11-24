@@ -1,0 +1,18 @@
+<div role="main">
+    <section id="index" role="region" data-position="current">
+        <app-header title="Mis Sitios" home="false" button="menu"></app-header>
+        <sites-list></sites-list>
+    </section>
+
+    <section id="pointOfInterest" data-position="back">
+        <app-header title="" home="false" button="back" ng-function="currentToRight()"></app-header>
+        <div class="text-center">
+            <img ng-src="{{request.image}}">
+        </div>
+            <h1 ng-bind="request.title"></h1>
+            <p ng-bind="request.description"></p>
+            <p ng-bind="request.street"></p>
+            <code ng-bind="request.latitude"></code>
+            <code ng-bind="request.longitude"></code>
+    </section>
+</div>

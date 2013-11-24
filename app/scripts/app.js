@@ -12,6 +12,10 @@ angular.module('educacityApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/sites', {
+        templateUrl: 'views/sites.html',
+        controller: 'SitesCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

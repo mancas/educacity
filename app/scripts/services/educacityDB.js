@@ -3,6 +3,7 @@
 angular.module('educacityApp')
   .factory('educacityDB', function ($q, pouchDB, $rootScope) {
     // Service logic
+    var entry;
     var entries = new Array();
 
     // Public API here
@@ -62,6 +63,7 @@ angular.module('educacityApp')
 
       get : function (id) {
         var deferred = $q.defer();
+        var promise;
 
         pouchDB.get(id.toString(), function (err, response) {
           $rootScope.$apply(function () {
@@ -73,7 +75,13 @@ angular.module('educacityApp')
           });
         });
 
-        return deferred.promise;
+        promise = deferred.promise;
+
+        promise.then(function (data) {
+          entry = data;
+        });
+
+        return entry;
       },
 
       //Delete an exisiting entry

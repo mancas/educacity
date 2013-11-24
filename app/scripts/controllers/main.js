@@ -13,6 +13,4 @@ angular.module('educacityApp')
             };
     //educacityDB.add($scope.entry);
     //educacityDB.delete(4);
-
-    $scope.sites = educacityDB.getAll()
   });
