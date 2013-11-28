@@ -1,18 +1,22 @@
 <div role="main">
     <section id="index" role="region" data-position="current">
-        <app-header title="Mis Sitios" home="false" button="menu"></app-header>
+        <app-header title="Mis Sitios" home="false" button="menu" trash="false"></app-header>
         <sites-list></sites-list>
     </section>
 
     <section id="pointOfInterest" data-position="back">
-        <app-header title="" home="false" button="back" ng-function="currentToRight()"></app-header>
-        <div class="text-center">
-            <img ng-src="{{request.image}}">
+        <app-header title="" home="false" button="back" ng-function="currentToBack()"></app-header>
+        <div role="note" class="row">
+            <div class="col-md-12">
+                <div class="thumbnail">
+                    <img ng-src="{{request.image}}" alt="{{request.title}}">
+                    <div class="caption">
+                        <h3 ng-bind="request.title"></h3>
+                        <p class="street-address" ng-bind="request.street"></p>
+                        <p ng-bind="request.description"></p>
+                    </div>
+                </div>
+            </div>
         </div>
-            <h1 ng-bind="request.title"></h1>
-            <p ng-bind="request.description"></p>
-            <p ng-bind="request.street"></p>
-            <code ng-bind="request.latitude"></code>
-            <code ng-bind="request.longitude"></code>
     </section>
 </div>

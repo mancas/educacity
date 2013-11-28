@@ -3,11 +3,17 @@
 </div>
 
 <div class="list-group row">
-    <div ng-repeat="site in sites | filter : siteSearch" class="list-group-item thumbanil">
+    <div ng-if="sites.length == 0" class="col-xs-12 col-md-12">
+        <h5 class="text-center"><i>Disfruta de tu ciudad y vuelve cuando hayas visto algún lugar de interés.</i></h5>
+<!-- ELIMINAR -->
+        <button ng-click="addData()">Añadir</button>
+    </div>
+
+    <div ng-repeat="site in sites | filter : siteSearch" class="list-group-item thumbanil" data-doc="{{site._id}}" id="{{$index}}" educacity-touchable>
         <div class="col-xs-4 col-md-3 educacity-img-thumbnail">
             <img ng-src="{{site.image}}">
         </div>
-        <div class="col-xs-8 col-md-9">
+        <div class="col-xs-8 col-md-9 pl0">
             <h4><a href="" ng-bind="site.title" ng-click="loadData($index)"></a></h4>
         </div>
     </div>

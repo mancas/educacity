@@ -8,6 +8,16 @@ body {
   height: 100%;
 }
 
+p {
+  font-size: 1.9rem;
+}
+
+h5 {
+  font-size: 1.9rem;
+}
+
+.pl0 { padding-left: 0px !important; }
+
 /* Custom page header */
 
 .header {
@@ -23,7 +33,7 @@ body {
   margin-right: 15px;
 }
 
-.header:first-child a:after {
+.header:first-child a:not(#btn-trash):after {
   background: url("../img/ui/separator.png") no-repeat scroll right center / 0.2rem 4.8rem rgba(0, 0, 0, 0);
   width: 2px;
   height: 49px;
@@ -75,6 +85,39 @@ body {
   top: 100%;
 }
 
+/** Action Icons **/
+.action-icon:before {
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 0;
+  content: "";
+  background: url("../img/icons/action_icons.png") no-repeat;
+  background-size: 3rem 192rem;
+}
+
+.delete:before {
+  background-position: -0px -570px;
+}
+
+.delete.icon {
+  height: auto !important;
+}
+
+a#btn-trash {
+  padding: 10px 0px !important;
+  margin-right: 0px;
+}
+
+.header:first-child a#btn-trash:before {
+  background: url("../img/ui/separator.png") no-repeat scroll right center / 0.2rem 4.8rem rgba(0, 0, 0, 0);
+  width: 2px;
+  height: 49px;
+  position: absolute;
+  top: 0;
+  content: "";
+}
+
 /* bootstrap overwrite */
 
 @media (max-width: 1500px) {
@@ -87,10 +130,24 @@ body {
 
 .educacity-nav {
   margin: 0px;
+  width: 100%;
 }
 
-.educacity-nav > li {
-  float: left !important;
+@media (max-width: 767px) {
+  .educacity-nav > li {
+    float: left !important;
+    overflow: hidden;
+  }
+
+  .educacity-nav > li > h1 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .educacity-nav > li.pull-right {
+    float: right !important;
+  }
 }
 
 /* POSITIONS */
@@ -183,7 +240,7 @@ section[role="region"]:not(#index) {
 div[role="main"] {
   height: 100%;
   position: relative;
-  background-color: #e3e3e3;
+  background-color: #F4F4F4;
 }
 
 /** Sites **/
@@ -225,12 +282,18 @@ div#search > input:focus {
   .list-group-item {
     float: left;
     min-width: 50%;
+    max-width: 50%;
+    height: 148px;
   }
 }
 
 @media (max-width: 320px) {
   .educacity-img-thumbnail {
     max-height: 80px;
+  }
+
+  .list-group-item {
+    height: 120px;
   }
 }
 
@@ -242,4 +305,38 @@ div#search > input:focus {
 
 .educacity-img-thumbnail img {
   width: 100%;
+}
+
+/** Site Info **/
+
+div[role="note"] {
+  background-color: #F4F4F4;
+  overflow: hidden;
+  position: relative;
+}
+
+div[role="note"].row {
+  margin: 0px !important;
+}
+
+div[role="note"].row .col-md-12 {
+  padding: 0px !important;
+}
+
+div[role="note"] h3 {
+  color: #FF4E00;
+  text-transform: uppercase;
+  border-bottom: solid 1px;
+  font-size: 20px;
+}
+
+div[role="note"] p {
+  text-align: justify;
+  text-indent: 25px;
+}
+
+div[role="note"] p.street-address {
+  font-style: italic;
+  color: #555555;
+  text-indent: 0px;
 }

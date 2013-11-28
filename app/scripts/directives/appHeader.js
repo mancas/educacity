@@ -9,7 +9,8 @@ angular.module('educacityApp')
         title : '@',
         home : '@',
         button : '@',
-        eventHandler: '&ngFunction'
+        eventHandler: '&ngFunction',
+        trash : '@'
       }
     };
   });

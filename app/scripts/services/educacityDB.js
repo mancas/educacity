@@ -40,6 +40,7 @@ angular.module('educacityApp')
         var id = data.id;
         var entry = {
           _id : id.toString(),
+          header : data.header,
           title : data.title,
           description : data.description,
           image : data.image,

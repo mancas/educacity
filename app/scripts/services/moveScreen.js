@@ -22,7 +22,7 @@ angular.module('educacityApp')
       },
 
       fadeOut: function () {
-        $('#pointOfInterest').attr('class', 'fade-out');
+        $('#pointOfInterest').attr('class', 'fade-out hide');
         $('[data-position="current"]').attr('class', 'show');
       },
 
