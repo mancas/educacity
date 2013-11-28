@@ -1,11 +1,10 @@
 'use strict';
 
 angular.module('educacityApp')
-  .controller('SitesCtrl', function ($scope, $rootScope, educacityDB, moveScreen, util) {
+  .controller('SitesCtrl', function ($scope, $rootScope, educacityDB, moveScreen, util, educacitySelectOnTouch) {
     //That's need to resolve some conflicts with the dataTransfer property
-    jQuery.event.props.push('dataTransfer');
+    //jQuery.event.props.push('dataTransfer');
     $scope.sites = educacityDB.getAll();
-    $rootScope.educacityDnD = {source : '', target : ''};
 
     $scope.backToCurrent = moveScreen.fadeIn;
 
@@ -19,13 +18,26 @@ angular.module('educacityApp')
         $scope.backToCurrent();
     };
 
-    $rootScope.$on('EDUCACITY-DROP', function (event, source, target) {
-        var id = source.attr('data-doc');
-        var index = source.attr('id');
+    $scope.dismiss = function () {
+      educacitySelectOnTouch.hideToolbar();
+      educacitySelectOnTouch.selectedModeOff();
+      educacitySelectOnTouch.removeAllItems();
+    }
+
+    $scope.deleteDocs = function () {
+      var docs = educacitySelectOnTouch.getSelectedItems();
+
+      docs.forEach(function (doc) {
+        var id = doc.attr('data-doc');
+        var index = util.getObjectIndexById($scope.sites, id);
+
         educacityDB.delete(id);
         $scope.sites.splice(index, 1);
-        $scope.$digest();
-    });
+      });
+
+      $scope.dismiss();
+    }
+
 
     /** TESTING **/
 
@@ -54,7 +66,12 @@ angular.module('educacityApp')
         $scope.addData = function () {
             educacityDB.add(entry);
             educacityDB.add(entry2);
-            $scope.$digest();
+            $scope.sites = educacityDB.getAll();
+        }
+
+        $scope.seeSRC = function(index) {
+          var element = $('#' + index + ' > div > img');
+          alert(element.attr('src'));
         }
     //educacityDB.add(entry);
   });

@@ -16,6 +16,18 @@ angular.module('educacityApp')
         }
 
         return object;
+      },
+
+      getObjectIndexById: function (objs, val) {
+        var index;
+        for (var i in objs) {
+            if (objs[i]._id == val) {
+                index = i;
+                break;
+            }
+        }
+
+        return index;
       }
     };
   });

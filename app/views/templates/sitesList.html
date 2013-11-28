@@ -11,10 +11,19 @@
 
     <div ng-repeat="site in sites | filter : siteSearch" class="list-group-item thumbanil" data-doc="{{site._id}}" id="{{$index}}" educacity-touchable>
         <div class="col-xs-4 col-md-3 educacity-img-thumbnail">
-            <img ng-src="{{site.image}}">
+            <img ng-src="{{site.image}}" alt="{{site.title}}">
         </div>
         <div class="col-xs-8 col-md-9 pl0">
             <h4><a href="" ng-bind="site.title" ng-click="loadData($index)"></a></h4>
         </div>
     </div>
+</div>
+
+<div role="toolbar" class="hide">
+    <ul>
+        <li><button class="action-icon delete" ng-click="deleteDocs()">Delete</button></li>
+    </ul>
+    <ul>
+        <li><button class="action-icon cancel" ng-click="dismiss()">Cancelar</button></li>
+    </ul>
 </div>
