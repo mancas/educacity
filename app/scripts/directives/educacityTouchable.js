@@ -6,22 +6,25 @@ angular.module('educacityApp')
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
         var start;
-        var end;
-        var touchContinue = false;
+        var timer;
 
         var handleTouchStart = function (e) {
             start = Date.now();
+            timer = setTimeout(function (event) { 
+                educacitySelectOnTouch.checkTime(start); 
+            }, educacitySelectOnTouch.getMaxTime());
         };
 
         var handleTouchEnd = function (e) {
-            e.preventDefault();
-            e.stopPropagation();
             var userInSelectedMode = false;
-            var current = Date.now();
 
-            userInSelectedMode = educacitySelectOnTouch.checkTime(current, start);
+            userInSelectedMode = educacitySelectOnTouch.getSelectedMode();
+            clearTimeout(timer);
 
             if (userInSelectedMode) {
+                e.preventDefault();
+                e.stopPropagation();
+
                 //Check if the toolbar is active
                 if (!educacitySelectOnTouch.isActiveToolbar()) {
                     educacitySelectOnTouch.showToolbar();
@@ -35,12 +38,16 @@ angular.module('educacityApp')
                     //The current element has to be added to selectedItems list
                     educacitySelectOnTouch.addItem(element);
                 }
+
+                return false;
             }
         };
 
         element.bind('touchstart', handleTouchStart);
-        element.bind('touchend', handleTouchEnd);
-        element.bind('click', handleTouchStart);
+        element.bind('touchend touchcancel touchleave', handleTouchEnd);
+        //element.bind('mousedown', handleTouchStart);
+        //element.bind('mouseup', handleTouchEnd);
+        //element.bind('click', function(){return false;});
       }
     };
   });

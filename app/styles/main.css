@@ -104,6 +104,10 @@ h5 {
   height: auto !important;
 }
 
+.cancel:before {
+  background: url("../img/icons/close.png") no-repeat center center;
+}
+
 a#btn-trash {
   padding: 10px 0px !important;
   margin-right: 0px;
