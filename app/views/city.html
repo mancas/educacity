@@ -1,0 +1,12 @@
+<div role="main">
+    <section id="index" role="region" data-position="current">
+        <app-header title="Sevilla" home="false" button="menu" trash="false" ng-init="init()"></app-header>
+
+        <educacity-gmap></educacity-gmap>
+    </section>
+
+    <section id="pointOfInterest" data-position="back">
+        <app-header title="" home="false" button="back" ng-function="currentToBack()"></app-header>
+        <site-description></site-description>
+    </section>
+</div>

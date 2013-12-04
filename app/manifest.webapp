@@ -14,5 +14,6 @@
         "geolocation": {
           "description": "Marking out user location"
         }
-    }
+    },
+    "type" : "privileged"
 }

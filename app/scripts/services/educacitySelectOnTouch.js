@@ -3,7 +3,7 @@
 angular.module('educacityApp')
   .service('educacitySelectOnTouch', function educacitySelectOnTouch() {
     // AngularJS will instantiate a singleton by calling "new" on this function
-        const TIME_TO_EDIT = 1500;
+        const TIME_TO_EDIT = 750;
         var selectedMode = false;
         var selectedItems = [];
         var toolbar = false;

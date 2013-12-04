@@ -1,12 +1,15 @@
 'use strict';
 
 angular.module('educacityApp')
-  .directive('educacityGmap', function (educacityMapUtil) {
+  .directive('educacityGmap', function (webMessaging) {
     return {
-      template: '<div id="educacity-map"></div>',
+      template: '<iframe id="map-iframe" src="http://www.naturalblanc.com/educacity/#/google-map"></iframe>',
       restrict: 'E',
+      replace : true,
       link: function postLink(scope, element, attrs) {
-        educacityMapUtil.initMap(element);
+        $(document).ready(function() {
+          webMessaging.sendMessageSync();
+        });
       }
     };
   });

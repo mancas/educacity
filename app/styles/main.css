@@ -8,11 +8,11 @@ body {
   height: 100%;
 }
 
-p {
+p, .popover-content {
   font-size: 1.9rem;
 }
 
-h5 {
+h5, .popover-title {
   font-size: 1.9rem;
 }
 
@@ -236,7 +236,7 @@ section[role="region"]:not(#index) {
 
 /** Google map **/
 
-#map_canvas {
+#educacity-map {
   height: 100%;
   width: 100%;
 }
@@ -394,4 +394,16 @@ div[role="note"] p.street-address {
 [role="toolbar"] .action-icon:before {
   left: 1.25rem;
   top: 0.5rem;
+}
+
+/** TUTORIAL STYLES **/
+
+.popover-title {
+  color: #FF4E00;
+}
+
+.btn {
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 500;
 }

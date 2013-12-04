@@ -1,0 +1,55 @@
+<div role="main">
+    <section id="index" role="region" data-position="current">
+        <nav class="nav navbar-default header" role="navigation">
+            <ul class="nav navbar-nav educacity-nav">
+                <li>
+                    <a id="btn-menu" href="" ng-click="goToMenu()" data-trigger="manual" data-tutorial="popover6" data-html="true" data-placement="auto bottom" data-title="Menú principal" data-container="body" data-content="<p>Si tocas este icono volerás al menú principal. ¡Inténtalo!</p>"><span class="icon icon-menu"></span></a>
+                </li>
+                <li>
+                    <h1 class="text-center">Mis Sitios</h1>
+                </li>
+            </ul>
+        </nav>
+        <div id="search">
+            <input data-tutorial="popover1" data-trigger="manual" data-html="true" data-placement="auto bottom" data-title="Búsqueda" data-container="body" data-content="<p>Desde aquí puedes realizar búsquedas en tus sitios favoritos</p> <button class='btn btn-default' ng-click='nextPopover()'>Siguiente</button>" type="text" class="form-control" placeholder="Buscar" ng-model="siteSearch.title" >
+        </div>
+
+        <div class="list-group row">
+            <div ng-if="sites.length == 0" class="col-xs-12 col-md-12">
+                <h5 class="text-center"><i>Disfruta de tu ciudad y vuelve cuando hayas visto algún lugar de interés.</i></h5>
+            </div>
+
+            <div ng-repeat="site in sites" class="list-group-item thumbanil" data-doc="{{site._id}}" id="{{$index}}" educacity-touchable data-trigger="manual" data-tutorial="popover4" data-html="true" data-placement="auto bottom" data-title="Eliminar contenido" data-container="body" data-content="<p>Si mantienes pulsado podrás acceder al modo edición y podrás eliminar aquellos sitios que no quieras. ¡Inténtalo!</p>">
+                <div class="col-xs-4 col-md-3 educacity-img-thumbnail">
+                    <img ng-src="{{site.image}}" alt="{{site.title}}">
+                </div>
+                <div class="col-xs-8 col-md-9 pl0">
+                    <h4><a href="" ng-bind="site.title" ng-click="loadData($index)" data-trigger="manual" data-tutorial="popover2" data-html="true" data-placement="auto bottom" data-title="Información" data-container="body" data-content="<p>Si tocas el título podrás ver información detallada de este lugar. ¡Inténtalo!</p>"></a></h4>
+                </div>
+            </div>
+        </div>
+
+        <div role="toolbar" class="hide">
+            <ul>
+                <li data-tutorial="popover5" data-html="true" data-placement="auto top" data-title="Eliminar" data-container="body" data-content="<p>Toca este icono para eliminar los sitios marcados</p>"><button class="action-icon delete" ng-click="deleteDocs()">Delete</button></li>
+            </ul>
+            <ul>
+                <li><button class="action-icon cancel">Cancelar</button></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="pointOfInterest" data-position="back">
+        <nav class="nav navbar-default header" role="navigation">
+            <ul class="nav navbar-nav educacity-nav">
+                <li>
+                    <a id="btn-back" href="" ng-click="currentToBack()" data-trigger="manual" data-tutorial="popover3" data-html="true" data-placement="auto bottom" data-title="Atrás" data-container="body" data-content="<p>Si tocas este icono volverás a la lista de sitios. ¡Inténtalo!</p>"><span class="icon icon-back"></span></a>
+                </li>
+                <li>
+                    <h1 class="text-center"></h1>
+                </li>
+            </ul>
+        </nav>
+        <site-description></site-description>
+    </section>
+</div>

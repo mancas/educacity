@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('educacityApp')
-  .directive('educacityTouchable', function (educacitySelectOnTouch) {
+  .directive('educacityTouchable', function (educacitySelectOnTouch, tutorialPopover) {
     return {
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
@@ -9,10 +9,16 @@ angular.module('educacityApp')
         var timer;
 
         var handleTouchStart = function (e) {
-            start = Date.now();
-            timer = setTimeout(function (event) { 
-                educacitySelectOnTouch.checkTime(start); 
-            }, educacitySelectOnTouch.getMaxTime());
+            var userInSelectedMode = false;
+
+            userInSelectedMode = educacitySelectOnTouch.getSelectedMode();
+
+            if (!userInSelectedMode) {
+                start = Date.now();
+                timer = setTimeout(function (event) { 
+                    educacitySelectOnTouch.checkTime(start); 
+                }, educacitySelectOnTouch.getMaxTime());
+            }
         };
 
         var handleTouchEnd = function (e) {
@@ -28,6 +34,11 @@ angular.module('educacityApp')
                 //Check if the toolbar is active
                 if (!educacitySelectOnTouch.isActiveToolbar()) {
                     educacitySelectOnTouch.showToolbar();
+                    //If the user is playing with the tutorial, we need to show the nextPopover
+                    if (attrs.tutorial) {
+                        tutorialPopover.dismissPopover();
+                        tutorialPopover.nextPopover();
+                    }
                 }
 
                 var index = $.inArray(element, educacitySelectOnTouch.getSelectedItems());
@@ -47,7 +58,7 @@ angular.module('educacityApp')
         element.bind('touchend touchcancel touchleave', handleTouchEnd);
         //element.bind('mousedown', handleTouchStart);
         //element.bind('mouseup', handleTouchEnd);
-        //element.bind('click', function(){return false;});
+        //element.bind('click', handleTouchStart);
       }
     };
   });

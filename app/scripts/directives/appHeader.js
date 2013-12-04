@@ -5,6 +5,7 @@ angular.module('educacityApp')
     return {
       templateUrl: "views/templates/header.html",
       restrict: 'E',
+      replace: true,
       scope: {
         title : '@',
         home : '@',

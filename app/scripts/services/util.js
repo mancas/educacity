@@ -28,6 +28,19 @@ angular.module('educacityApp')
         }
 
         return index;
+      },
+
+      resizeMap: function() {
+        var gmap = $('#map-iframe');
+        var win = $(window);
+        var header = gmap.prev('nav');
+
+        gmap.height(win.height() - header.height());
+
+        win.resize(function(){
+            var new_gmap_size = win.height() - header.height();
+            gmap.height(win.height() - header.height());
+        });
       }
     };
   });

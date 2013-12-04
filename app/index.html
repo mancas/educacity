@@ -15,10 +15,10 @@
         <link rel="stylesheet" href="styles/bootstrap.css">
         <link rel="stylesheet" href="styles/main.css">
         <link rel="stylesheet" href="styles/transitions.css">
-        <link rel="stylesheet" href="styles/draggable.css">
+        <link rel="stylesheet" href="styles/iframe.css">
         <!-- endbuild -->
 </head>
-  <body ng-app="educacityApp">
+  <body ng-app="educacityApp" ng-csp>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -32,7 +32,6 @@
     <div class="container" ng-view=""></div>
 
     <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/jquery-taphold/jquery-taphold.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/pouchDB/pouchDB.js"></script>
 
@@ -78,6 +77,11 @@
         <script src="scripts/directives/siteDescription.js"></script>
         <script src="scripts/directives/educacityGmap.js"></script>
         <script src="scripts/services/educacityMapUtil.js"></script>
+        <script src="scripts/controllers/city.js"></script>
+        <script src="scripts/controllers/map.js"></script>
+        <script src="scripts/services/webMessaging.js"></script>
+        <script src="scripts/controllers/sitesTutorial.js"></script>
+        <script src="scripts/services/tutorialPopover.js"></script>
         <!-- endbuild -->
 </body>
 </html>
