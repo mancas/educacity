@@ -45,6 +45,7 @@ angular.module('educacityApp')
         $scope.sites.splice(index, 1);
       });
 
+      $scope.dismiss();
       $scope.nextPopover();
     }
 

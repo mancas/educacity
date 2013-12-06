@@ -33,7 +33,7 @@ h5, .popover-title {
   margin-right: 15px;
 }
 
-.header:first-child a:not(#btn-trash):after {
+.header:first-child a:not(#btn-star, #btn-trash):after {
   background: url("../img/ui/separator.png") no-repeat scroll right center / 0.2rem 4.8rem rgba(0, 0, 0, 0);
   width: 2px;
   height: 49px;
@@ -100,7 +100,10 @@ h5, .popover-title {
   background-position: -0px -570px;
 }
 
-.delete.icon {
+.bookmark:before { background-position:  -0px -120px; }
+.bookmarked:before { background-position:  -0px -150px; }
+
+.delete.icon, .bookmark.icon, .bookmarked.icon {
   height: auto !important;
 }
 
@@ -108,12 +111,12 @@ h5, .popover-title {
   background: url("../img/icons/close.png") no-repeat center center;
 }
 
-a#btn-trash {
+a#btn-trash, a#btn-star {
   padding: 10px 0px !important;
   margin-right: 0px;
 }
 
-.header:first-child a#btn-trash:before {
+.header:first-child a#btn-trash:before, a#btn-star:before {
   background: url("../img/ui/separator.png") no-repeat scroll right center / 0.2rem 4.8rem rgba(0, 0, 0, 0);
   width: 2px;
   height: 49px;
@@ -406,4 +409,13 @@ div[role="note"] p.street-address {
   width: 100%;
   font-size: 1.6rem;
   font-weight: 500;
+}
+
+/** Alert styles **/
+.alert {
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  width: 50%;
+  z-index: 1000;
 }

@@ -11,7 +11,8 @@ angular.module('educacityApp')
         home : '@',
         button : '@',
         eventHandler: '&ngFunction',
-        trash : '@'
+        trash : '@',
+        star : '@'
       }
     };
   });

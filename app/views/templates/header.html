@@ -12,6 +12,9 @@
         <li ng-if="trash == 'true'" class="pull-right">
             <a id="btn-trash" href=""><span class="action-icon icon delete" educacity-dropable></span></a>
         </li>
+        <li ng-if="star == 'true'" class="pull-right">
+            <a id="btn-star" href=""><span class="action-icon icon bookmark" site-favorite></span></a>
+        </li>
     </ul>
     <h1 ng-if="home == 'true'" class="text-center" ng-bind="'Educacity ' + title"></h1>
 </nav>

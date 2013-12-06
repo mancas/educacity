@@ -28,6 +28,14 @@ angular.module('educacityApp')
 
       setTitle: function (title) {
         $('#btn-back').parent('li').next('li').children('h1').text(title);;
+      },
+
+      changeFavIcon: function () {
+        var element = $('#btn-star').children('span');
+        if (element.hasClass('bookmark')) {
+            element.removeClass('bookmark');
+            element.addClass('bookmarked');
+        }
       }
     };
   });

@@ -4,7 +4,10 @@ angular.module('educacityApp')
   .factory('pouchDB', function () {
     // Service logic
     var databaseName = "educacitySites";
+    var db = new PouchDB(databaseName);
+    var remoteCouch = 'https://educacity:dx4wteducacity@educacity.cloudant.com/educacity';
 
-    // Public API here
-    return new PouchDB(databaseName);
+    db.replicate.from(remoteCouch, {continuous : true});
+
+    return db;
   });

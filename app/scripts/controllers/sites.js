@@ -74,5 +74,7 @@ angular.module('educacityApp')
           var element = $('#' + index + ' > div > img');
           alert(element.attr('src'));
         }
-    //educacityDB.add(entry);
+
+    $scope.getAttachments = function () {educacityDB.getAttachment(1) };
+    //educacityDB.getDataServer();
   });
